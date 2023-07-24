@@ -1,12 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import './App.css'
 import { NewTodo } from './component/NewTodo'
 import { TodoContainer } from './component/TodoContainer'
+import { TodoContext } from './context/TodoContext';
 
 
 function App() {
 
   const [modalActive,setModalActive] = useState(false);
+
+  const {todos} = useContext(TodoContext);
+  console.log(todos)
 
   const openModal = () => {
     setModalActive(true);

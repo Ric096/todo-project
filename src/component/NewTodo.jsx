@@ -7,14 +7,17 @@ import { useContext } from "react";
 export function NewTodo({closeModal}) {
  
   const {todos,setTodos} = useContext(TodoContext);
-  // const {todos,setTodos} = todoContext;
   
   const saveNewTodo = (e) => {
     e.preventDefault();
 
-    let newTodo = e.target.newTodo.value;
-    setTodos([newTodo,...todos]);
+    let newTodo = {
+      text: e.target.newTodo.value,
+      completed: false
+    }
 
+    setTodos([...todos,newTodo]);
+    console.log(todos)
     const inputDOM =document.querySelector('.todo-input');
         inputDOM.value='';
 
