@@ -21,10 +21,14 @@ export function TodoContainer() {
   return (
     <>
 
+    {
+      todos.length > 0 ? 
       <h2>ToDos: {todoCompleted.length} de {todos.length} todos completados</h2>
+      : ''
+    }
 
       {
-        todos >= 0 ? <Counter /> : (
+        todos <= 0 ? <Counter /> : (
           todos.map((todo, index) => (
   
             <Todo key={index} todo={todo}/>

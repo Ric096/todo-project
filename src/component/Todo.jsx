@@ -20,6 +20,7 @@ export function Todo({ todo, index }) {
         return todo;
       }
     });
+
     setTodos(updatedTodos);
     
   };
@@ -33,18 +34,15 @@ export function Todo({ todo, index }) {
 
   return (
     <section className="todo-container" key={index}>
-      
-      {
-        todo.completed ? (
-        <img src={checkIconGreen} onClick={() => taskCompleted(todo.text)} />
-        ) : (
-          <img src={checkIcon} onClick={() => taskCompleted(todo.text)} />
-        )
 
-      }
-
-      <p className={`${todo.completed ? "todo-completed" : "todo-text"}`}>{todo.text}</p>
-      <img onClick={() => deleteTodo(todo.text)} src={deleteIcon} />
+    <img  
+      src={todo.completed ? checkIconGreen : checkIcon}
+      onClick={() => taskCompleted(todo.text)}
+      alt='Toggle Complete'
+    />      
+  
+    <p className={`todo-text ${todo.completed ? "todo-completed" : ""}`}>{todo.text}</p>
+    <img className='delete-todo' onClick={() => deleteTodo(todo.text)} src={deleteIcon} />
 
     </section>
   )
